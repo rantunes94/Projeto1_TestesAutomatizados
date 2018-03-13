@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="SeleniumWebDriver" />
+        <module name="TeenPowerTestSuite" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="SeleniumWebDriver" target="1.5" />
+      <module name="TeenPowerTestSuite" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
