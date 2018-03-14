@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class testCaseLogout6 {
+public class testCaseFuncAdmin0 {
     private WebDriver driver;
     private String baseUrl;
     private boolean acceptNextAlert = true;
@@ -28,13 +28,12 @@ public class testCaseLogout6 {
         System.setProperty("phantomjs.binary.path",
                 "drivers\\phantomjs.exe");
         driver = new ChromeDriver();
-        baseUrl = "http://159.65.29.212/login";
+        baseUrl = "http://159.65.29.212";
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
-
     @Test
-    public void testE() throws Exception {
-        driver.get("http://159.65.29.212/login");
+    public void testTestCaseFuncAdmin0() throws Exception {
+        driver.get("http://159.65.29.212//login");
         driver.findElement(By.id("email")).click();
         driver.findElement(By.id("email")).clear();
         driver.findElement(By.id("email")).sendKeys("administrador@mail.com");
@@ -48,21 +47,19 @@ public class testCaseLogout6 {
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
-        // Warning: verifyTextPresent may require manual changes
+        // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
 
-        driver.findElement(By.id("navbarDropdownMenuLink")).click();
-        driver.findElement(By.linkText("Logout")).click();
 
+        driver.findElement(By.cssSelector("button.navbar-toggler")).click();
+        driver.findElement(By.linkText("Administrator")).click();
+        driver.findElement(By.linkText("Perfil")).click();
 
         try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Página Inicial"));
+            assertEquals("Perfil do Utilizador", driver.findElement(By.cssSelector("h5.card-header")).getText());
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
-
     }
-
-
 
     @After
     public void tearDown() throws Exception {
@@ -106,4 +103,3 @@ public class testCaseLogout6 {
         }
     }
 }
-
