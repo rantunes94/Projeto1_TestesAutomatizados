@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class testCaseLogin0 {
+public class testCaseLogout6 {
     private WebDriver driver;
     private String baseUrl;
     private boolean acceptNextAlert = true;
@@ -28,23 +28,41 @@ public class testCaseLogin0 {
         System.setProperty("phantomjs.binary.path",
                 "drivers\\phantomjs.exe");
         driver = new ChromeDriver();
-        baseUrl = "http://159.65.29.212";
+        baseUrl = "http://159.65.29.212/login";
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
     @Test
-    public void testTestCaseLogin0() throws Exception {
-        driver.get("http://159.65.29.212");
-        // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
-        driver.findElement(By.cssSelector("button.navbar-toggler")).click();
-        driver.findElement(By.linkText("Login")).click();
+    public void testE() throws Exception {
+        driver.get("http://159.65.29.212/login");
+        driver.findElement(By.id("email")).click();
+        driver.findElement(By.id("email")).clear();
+        driver.findElement(By.id("email")).sendKeys("administrador@mail.com");
+        driver.findElement(By.id("password")).click();
+        driver.findElement(By.id("password")).clear();
+        driver.findElement(By.id("password")).sendKeys("admin_tp18_a");
+        driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
         // Warning: verifyTextPresent may require manual changes
         try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Iniciar Sessão"));
+            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Total de Utilizadores"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
+        // Warning: verifyTextPresent may require manual changes
+
+        driver.findElement(By.id("navbarDropdownMenuLink")).click();
+        driver.findElement(By.linkText("Logout")).click();
+
+
+        try {
+            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Página Inicial"));
+        } catch (Error e) {
+            verificationErrors.append(e.toString());
+        }
+
     }
+
+
 
     @After
     public void tearDown() throws Exception {
@@ -88,3 +106,4 @@ public class testCaseLogin0 {
         }
     }
 }
+
