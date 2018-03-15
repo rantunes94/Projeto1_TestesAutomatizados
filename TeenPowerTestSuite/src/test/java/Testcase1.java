@@ -19,7 +19,7 @@ public class Testcase1 {
     baseUrl = "http://159.65.29.212/";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
-    
+
   }
 
   @Test
