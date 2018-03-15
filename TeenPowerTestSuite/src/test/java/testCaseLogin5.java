@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class testCaseLogin5 {
+public class testCaseLogin5 extends junit.framework.TestCase{
     private WebDriver driver;
     private String baseUrl;
     private boolean acceptNextAlert = true;

@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class testCaseLogout0 extends junit.framework.TestCase{
+public class testSuiteLogins extends junit.framework.TestCase{
     private WebDriver driver;
     private String baseUrl;
     private boolean acceptNextAlert = true;
@@ -28,12 +28,39 @@ public class testCaseLogout0 extends junit.framework.TestCase{
         System.setProperty("phantomjs.binary.path",
                 "drivers\\phantomjs.exe");
         driver = new ChromeDriver();
-        baseUrl = "http://159.65.29.212/login";
+        baseUrl = "http://159.65.29.212";
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
     @Test
-    public void testE() throws Exception {
+    public void testTestCaseLogin0() throws Exception {
+        driver.get("http://159.65.29.212");
+        // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
+        //driver.findElement(By.cssSelector("button.navbar-toggler")).click();
+        driver.findElement(By.linkText("Login")).click();
+        // Warning: verifyTextPresent may require manual changes
+        try {
+            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Iniciar Sessão"));
+        } catch (Error e) {
+            verificationErrors.append(e.toString());
+        }
+    }
+
+    @Test
+    public void testTestCaseLogin1() throws Exception {
+        driver.get("http://159.65.29.212");
+        // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
+        driver.findElement(By.linkText("Login")).click();
+        // Warning: verifyTextPresent may require manual changes
+        try {
+            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Iniciar Sessão"));
+        } catch (Error e) {
+            verificationErrors.append(e.toString());
+        }
+    }
+
+    @Test
+    public void testTestCaseLogin2() throws Exception {
         driver.get("http://159.65.29.212/login");
         driver.findElement(By.id("email")).click();
         driver.findElement(By.id("email")).clear();
@@ -48,25 +75,42 @@ public class testCaseLogout0 extends junit.framework.TestCase{
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
-        // Warning: verifyTextPresent may require manual changes
-
-
-        //driver.findElement(By.cssSelector("button.navbar-toggler")).click();
-        driver.findElement(By.linkText("Administrator")).click();
-        driver.findElement(By.linkText("Logout")).click();
-
-
-        try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Página Inicial"));
-        } catch (Error e) {
-            verificationErrors.append(e.toString());
-        }
-
     }
 
 
+    @Test
+    public void testTestCaseLogin4() throws Exception {
+        driver.get("http://159.65.29.212/login");
+        driver.findElement(By.id("email")).click();
+        driver.findElement(By.id("email")).clear();
+        driver.findElement(By.id("email")).sendKeys("");
+        driver.findElement(By.id("password")).click();
+        driver.findElement(By.id("password")).clear();
+        driver.findElement(By.id("password")).sendKeys("");
+        // Warning: verifyTextPresent may require manual changes
+        try {
+            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Iniciar Sessão"));
+        } catch (Error e) {
+            verificationErrors.append(e.toString());
+        }
+    }
 
-
+    @Test
+    public void testTestCaseLogin5() throws Exception {
+        driver.get("http://159.65.29.212/login");
+        driver.findElement(By.id("email")).click();
+        driver.findElement(By.id("email")).clear();
+        driver.findElement(By.id("email")).sendKeys("teste.java@teste.java");
+        driver.findElement(By.id("password")).click();
+        driver.findElement(By.id("password")).clear();
+        driver.findElement(By.id("password")).sendKeys("teste.java");
+        driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
+        try {
+            assertEquals("Não existem registos com as credenciais fornecidas.", driver.findElement(By.xpath("//div[@id='appContainer']/div/div/div/div/div[2]/div")).getText());
+        } catch (Error e) {
+            verificationErrors.append(e.toString());
+        }
+    }
 
     @After
     public void tearDown() throws Exception {
@@ -110,4 +154,8 @@ public class testCaseLogout0 extends junit.framework.TestCase{
         }
     }
 }
+
+
+
+
 
