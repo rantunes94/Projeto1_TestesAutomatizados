@@ -14,7 +14,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
         import org.openqa.selenium.support.ui.Select;
 
-public class testCaseLogin3 {
+public class testCaseLogin3DESCONTINUADO {
 private WebDriver driver;
 private String baseUrl;
 private boolean acceptNextAlert = true;
