@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class testCaseLogin0 {
+public class testCaseLogin0 extends junit.framework.TestCase{
     private WebDriver driver;
     private String baseUrl;
     private boolean acceptNextAlert = true;
@@ -36,7 +36,7 @@ public class testCaseLogin0 {
     public void testTestCaseLogin0() throws Exception {
         driver.get("http://159.65.29.212");
         // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
-        driver.findElement(By.cssSelector("button.navbar-toggler")).click();
+        //driver.findElement(By.cssSelector("button.navbar-toggler")).click();
         driver.findElement(By.linkText("Login")).click();
         // Warning: verifyTextPresent may require manual changes
         try {

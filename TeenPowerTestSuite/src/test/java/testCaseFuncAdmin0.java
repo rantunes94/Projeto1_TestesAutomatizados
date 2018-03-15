@@ -50,8 +50,9 @@ public class testCaseFuncAdmin0 {
         // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
 
 
-        driver.findElement(By.cssSelector("button.navbar-toggler")).click();
+        //driver.findElement(By.id("navbar-toggler")).click();
         driver.findElement(By.linkText("Administrator")).click();
+
         driver.findElement(By.linkText("Perfil")).click();
 
         try {

@@ -1,15 +1,12 @@
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
 import org.junit.*;
 import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.Select;
 
 public class testCaseLogin5 {
     private WebDriver driver;
@@ -37,10 +34,10 @@ public class testCaseLogin5 {
         driver.get("http://159.65.29.212/login");
         driver.findElement(By.id("email")).click();
         driver.findElement(By.id("email")).clear();
-        driver.findElement(By.id("email")).sendKeys("teste@teste");
+        driver.findElement(By.id("email")).sendKeys("teste.java@teste.java");
         driver.findElement(By.id("password")).click();
         driver.findElement(By.id("password")).clear();
-        driver.findElement(By.id("password")).sendKeys("teste");
+        driver.findElement(By.id("password")).sendKeys("teste.java");
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
         try {
             assertEquals("Não existem registos com as credenciais fornecidas.", driver.findElement(By.xpath("//div[@id='appContainer']/div/div/div/div/div[2]/div")).getText());
